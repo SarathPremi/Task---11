@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(data => {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function createCountryCard(country) {
-    const { capital, name, flags, region, latlng, cca2 } = country;
+    const { capital, name, flags, region, latlng, cca2, population } = country;
     const card = document.createElement("div");
     card.classList.add("col-md-4");
 
@@ -21,6 +21,7 @@ function createCountryCard(country) {
                 <h5 class="card-title">${name.common}</h5>
                 <p class="card-text">Capital: ${capital}</p>
                 <p class="card-text">Region: ${region}</p>
+                <p class="card-text">Population: ${population}</p>
                 <p class="card-text">Latlng: ${latlng}</p>
                 <p class="card-text">Country codes: ${cca2}</p>
                 <button class="btn btn-primary" onclick="getWeather('${name.common}')">Get Weather</button>
